@@ -35,7 +35,7 @@ public class Main {
                     position += dice;
                     System.out.println(" Wow , it's a ladder your position is increased " + dice);
 
-                    if( position >= winning){
+                    if( position > winning){
                         position -= dice;
                     } else if (position == winning) {
                         System.out.println("You Won The Game");
