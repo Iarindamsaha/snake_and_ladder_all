@@ -10,6 +10,7 @@ public class Main {
         int start = 0;
         int position = 0;
         int winning = 100;
+        int diceRoll = 0;
 
         System.out.println("Starting Point : " + start);
 
@@ -18,7 +19,8 @@ public class Main {
 
         while (position <= winning) {
 
-            int dice = di.nextInt(1, 7);
+            diceRoll++;
+            int dice = di.nextInt(7)+1;
             System.out.println("The Dice Output is : " + dice);
             check = di.nextInt(3);
 
@@ -34,15 +36,18 @@ public class Main {
 
                     position += dice;
                     System.out.println(" Wow , it's a ladder your position is increased " + dice);
-
-                    if( position >= winning){
+                    if( position > winning){
                         position -= dice;
-                    } else if (position == winning) {
-                        System.out.println("You Won The Game");
-                        System.out.println(position);
-                        System.exit(0);
-                        //break;
+
                     }
+
+                    else if (position == winning) {
+                        System.out.println("You Won The Game");
+                        System.out.println("Player Position" + position);
+                        System.out.println("Dice Played " + diceRoll + "Times");
+                        System.exit(0);
+                    }
+
                     break;
                 }
 
@@ -65,9 +70,11 @@ public class Main {
                     System.out.println("Wrong Wrong Wrong");
                 }
             }
+
             System.out.println(position);
 
 
         }
+
     }
 }
