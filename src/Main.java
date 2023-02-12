@@ -34,14 +34,28 @@ public class Main {
 
                     position += dice;
                     System.out.println(" Wow , it's a ladder your position is increased " + dice);
+
+                    if( position >= winning){
+                        position -= dice;
+                    } else if (position == winning) {
+                        System.out.println("You Won The Game");
+                        System.out.println(position);
+                        System.exit(0);
+                        //break;
+                    }
                     break;
                 }
 
                 case 2: {
 
 
-                    position -=  dice;
-                    System.out.println(" Opps! it's a snake your position is decreased by " + dice);
+                    if ((position - dice) < start) {
+                        position = start;
+                    }
+                    else {
+                        position -=  dice;
+                        System.out.println(" Opps! it's a snake your position is decreased by " + dice);
+                    }
                     break;
 
                 }
